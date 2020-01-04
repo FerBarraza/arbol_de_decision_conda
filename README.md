@@ -15,15 +15,15 @@ from sklearn.tree import DecisionTreeClassifier
 ```
 
 ### Acerca del set de datos
-Imagina que eres un investigador médico recolectando datos para un estudio. Has colectado datos de un grupo de pacientes, todos sufrieron la misma enfermedad. Durante su tratamiento, cada paciente respondio a una de 5 medicaciones, Droga A, Droga B, Droga c, Droga x e y. 
+Se ha recolectado datos de un grupo de pacientes, todos sufrieron la misma enfermedad. Durante su tratamiento, cada paciente respondio a una de 5 medicaciones, Droga A, Droga B, Droga c, Droga x e y. 
 
-Parte de tu trabajo es construir un modelo para encontrar la droga apropiada para un próximo paciente con la misma enfermedad. El conjunto de características son Edad, Sexo, Presión Sanguínea y Colesterol. El objetivo es la droga ante la cual cada paciente respondió. 
+Parte del trabajo es construir un modelo para encontrar la droga apropiada para un próximo paciente con la misma enfermedad. El conjunto de características son Edad, Sexo, Presión Sanguínea y Colesterol. El objetivo es la droga ante la cual cada paciente respondió. 
 
-Este es un ejemplo de un clasificador binario donde puedes utilizar un set de entrenamiento del set de datos 
+Este es un ejemplo de un clasificador binario donde se puede utilizar un set de entrenamiento del set de datos 
 para construir un árbol de decisión para predecir la clase de pacientes desconocidos o para prescribirle a un nuevo paciente.
 
 
-ahora, lee los datos utilizando el marco de datos de panda:
+ahora, se lee los datos utilizando el marco de datos de panda:
 
 
 ```python
@@ -125,7 +125,7 @@ Utilizando <b>my_data</b> como los datos de panda el archivo Drug.csv, declara l
    
 </ul>
 
-Elimina la columna que contiene el target ya que no posee valores numéricos.
+Se elimina la columna que contiene el target ya que no posee valores numéricos.
 
 
 ```python
@@ -144,7 +144,7 @@ X[0:5]
 
 
 
-Como te puedes imaginar, algunas características son de categoría, tales como __Sex__ o__BP__. Desafortunadamente, los árboles de Decisión Sklearn no manejan variables categóricas. Pero las podemos convertir en valores numéricos. __pandas.get_dummies()__
+Algunas características son de categoría, tales como __Sex__ o__BP__. Los árboles de Decisión Sklearn no manejan variables categóricas. Pero las podemos convertir en valores numéricos. __pandas.get_dummies()__
 Convertir variable categórica en indicadores de variables.
 
 
@@ -179,7 +179,7 @@ X[0:5]
 
 
 
-Ahora, podemos completar la variable objetivo (target).
+Ahora, se puede completar la variable objetivo (target).
 
 
 ```python
@@ -201,14 +201,14 @@ y[0:5]
 
 ---
 ## Configurando el Arbol de Decisión
-Estaremos utilizando <b>entrenar/probar separar</b> en nuestro <b>árbol de decisión</b>. Importemos <b>train_test_split</b> de <b>sklearn.cross_validation</b>.
+Se utilizara <b>train_test_split</b> en nuestro <b>árbol de decisión</b>. Importemos <b>train_test_split</b> de <b>sklearn.cross_validation</b>.
 
 
 ```python
 from sklearn.model_selection import train_test_split
 ```
 
-Ahora <b> train_test_split </b> devolverá 4 parámetros diferentes. Los nombraremos:<br>
+Ahora <b> train_test_split </b> devolverá 4 parámetros diferentes.<br>
 X_trainset, X_testset, y_trainset, y_testset <br> <br>
 El <b> train_test_split </b> necesitará los parámetros: <br>
 X, y, test_size=0.3, and random_state=3. <br> <br>
@@ -220,7 +220,7 @@ X_trainset, X_testset, y_trainset, y_testset = train_test_split(X, y, test_size=
 ```
 
 ## Modelando
-Primero crearemos una instancia del <b>DecisionTreeClassifier</b> llamada <b>drugTree</b>.<br>
+Primero se crea una instancia del <b>DecisionTreeClassifier</b> llamada <b>drugTree</b>.<br>
 Dentro del clasificador, especificaremos <i> criterion="entropy" </i> para que podamos ver la nueva información de cada nodo.
 
 
@@ -241,7 +241,7 @@ drugTree # muestra los parámetros por omisión
 
 
 
-Luego, adaptaremos los datos con la matriz de entrenamiento <b> X_trainset </b> y el vector de respuesta <b> y_trainset </b>
+Luego, se adaptan los datos con la matriz de entrenamiento <b> X_trainset </b> y el vector de respuesta <b> y_trainset </b>
 
 
 ```python
@@ -261,7 +261,7 @@ drugTree.fit(X_trainset,y_trainset)
 
 
 ## Predicción
-Ahora hagamos algunas <b>predicciones</b> en el dataset de pruebas y guardémoslas en una variable llamada <b>predTree</b>.
+Ahora se realizan algunas <b>predicciones</b> en el dataset de pruebas y se guardan en una variable llamada <b>predTree</b>.
 
 
 ```python
@@ -287,7 +287,7 @@ print (y_testset [0:5])
 
 
 ## Evaluación
-Luego, importemos __metrics__ de sklearn y revisemos la precisión de nuestro modelo.
+Luego, imporatamos __metrics__ de sklearn y revisamos la precisión de nuestro modelo.
 
 
 ```python
